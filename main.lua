@@ -1,6 +1,6 @@
 require 'Assets'
 require 'Player.player'
-require 'Events.UserInput'
+require 'Events.userInput'
 
 function love.load()
     Player.name = 'Julian Cook';
