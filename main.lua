@@ -3,11 +3,8 @@ require 'Player.player'
 require 'Events.userInput'
 
 function love.load()
-    Player.name = 'Julian Cook'
-    love.window.setTitle("Julian's Prototype")
+    LoadPlayerAssets()
     LoadLevelSettings()
-    -- will set to full screen (commented out for now).
-    -- love.window.setFullscreen(true, "desktop")
 end
 
 function love.update(dt)
@@ -15,8 +12,8 @@ function love.update(dt)
 end
 
 function love.draw()
-    Draw_Level()
     Render_Player()
+    Draw_Level()
 end
 
 -- Will close out game instance. TODO: I will need to revist and change logic.

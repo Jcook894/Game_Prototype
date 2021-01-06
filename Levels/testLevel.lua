@@ -7,6 +7,7 @@ function LoadLevelSettings()
     local tileH, tileW = 32, 32
     local tileSetH, tileSetW = Test_Level.tilesheet:getHeight(), Test_Level.tilesheet:getWidth()
 
+    -- Create quads for each tile in tilesheet.
     GrassTile = love.graphics.newQuad(0, 0, tileW, tileH, tileSetW, tileSetH)
     FlowerTile = love.graphics.newQuad(0, 32, tileW, tileH, tileSetW, tileSetH)
     RockTile = love.graphics.newQuad(32, 0, tileW, tileH, tileSetW, tileSetH)
