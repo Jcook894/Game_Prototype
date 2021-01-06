@@ -1,0 +1,1 @@
+-- Create generic func. that will take spritesheets and animate them, based on image properties.
