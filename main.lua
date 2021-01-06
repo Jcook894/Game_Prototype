@@ -1,19 +1,11 @@
+require 'Levels.testLevel'
 require 'Player.player'
 require 'Events.userInput'
 
 function love.load()
     Player.name = 'Julian Cook'
     love.window.setTitle("Julian's Prototype")
-    Test_tileSet = love.graphics.newImage('Assets/LOVE_Grass_Tilesheet.png')
-    
-    -- Set Tile width and height
-    local tileH, tileW = 32, 32
-    local tileSetH, tileSetW = Test_tileSet:getHeight(), Test_tileSet:getWidth()
-
-    GrassTile = love.graphics.newQuad(0, 0, tileW, tileH, tileSetW, tileSetH)
-    FlowerTile = love.graphics.newQuad(0, 32, tileW, tileH, tileSetW, tileSetH)
-    RockTile = love.graphics.newQuad(32, 0, tileW, tileH, tileSetW, tileSetH)
-
+    LoadLevelSettings()
     -- will set to full screen (commented out for now).
     -- love.window.setFullscreen(true, "desktop")
 end
@@ -23,15 +15,7 @@ function love.update(dt)
 end
 
 function love.draw()
-    -- Move logic into level builder and draw tiles generically.
-    love.graphics.draw(Test_tileSet, GrassTile, 368, 268)
-    love.graphics.draw(Test_tileSet, GrassTile, 400, 268)
-    love.graphics.draw(Test_tileSet, FlowerTile, 432, 268)
-    love.graphics.draw(Test_tileSet, GrassTile, 464, 268)
-    love.graphics.draw(Test_tileSet, GrassTile,  368, 236)
-    love.graphics.draw(Test_tileSet, RockTile,  400, 236)
-    love.graphics.draw(Test_tileSet, GrassTile,  432, 236)
-
+    Draw_Level()
     Render_Player()
 end
 
