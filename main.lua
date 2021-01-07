@@ -12,8 +12,8 @@ function love.update(dt)
 end
 
 function love.draw()
-    Render_Player()
     Draw_Level()
+    Render_Player()
 end
 
 -- Will close out game instance. TODO: I will need to revist and change logic.
