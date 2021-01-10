@@ -1,4 +1,5 @@
 -- Level configuration.
+
 Test_Level = {
     tileH = 32,
     tileW = 32,

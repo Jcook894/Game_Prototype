@@ -1,4 +1,5 @@
 require 'Events.animations'
+
 -- Player configuration.
 Player = {
     x = 500,
@@ -26,29 +27,32 @@ function Render_Player()
 end
 
 -- TODO:
+-- *Figure out better implementation.
 -- *Rename variables
 -- *Figure out generic collision detection.
 -- *Make sure collision detection isnt resource intesive.
 -- *Set Collision detection on tilemaps.
-function Check_Collision()
-    -- Get Player x Position
-    local currentPlayerX, currentPlayerY = Player.x, Player.y
 
+function Collision_Detection()
     -- Get enemy position and add the tile width to that pos (from left and right of position).
-    local currentEnemyX1, currentEnemyX2 = math.abs(Enemy.x - Enemy.tileW), math.abs(Enemy.x + Enemy.tileW)
-    local currentEnemyY1, currentEnemyY2 = math.abs(Enemy.y - Enemy.tileH), math.abs(Enemy.y + Enemy.tileH)
+    local x1, x2 = math.abs(Enemy.x - Enemy.tileW), math.abs(Enemy.x + Enemy.tileW)
+    local y1, y2 = math.abs(Enemy.y - Enemy.tileH), math.abs(Enemy.y + Enemy.tileH)
 
-    -- Check X position.
-    if (currentPlayerX >= currentEnemyX1 and currentPlayerX <= currentEnemyX2) then
-        print('X: Collision Detected');
-    else
-        print('X: No Collision')
+    -- Check X and Y position.
+    if Player.y >= y1 and Player.y <= y2 and Player.x >= x1 and Player.x <= x2 then
+        -- Check X axis collision.
+        if Player.x >= x1 and Player.x >= x2 then
+            Player.x = Player.x + 1
+        elseif Player.x <= x2 then
+            Player.x = Player.x - 1
+        end
+
+        -- Check Y axis collision.
+        if Player.y >= y1 and Player.y >= y2 then
+            Player.y = Player.y + 1
+        elseif Player.y <= y2 then
+            Player.y = Player.y - 1
+        end
     end
 
-    -- Check Y position.
-    if (currentPlayerY >= currentEnemyY1 and currentPlayerY <= currentEnemyY2) then
-        print('Y: Collision Detected')
-    else
-        print('Y: No Collision')
-    end
 end
