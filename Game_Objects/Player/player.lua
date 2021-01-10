@@ -46,7 +46,7 @@ function Check_Collision()
     end
 
     -- Check Y position.
-    if (currentPlayerY <= currentEnemyY1 and currentPlayerY >= currentEnemyY2) then
+    if (currentPlayerY >= currentEnemyY1 and currentPlayerY <= currentEnemyY2) then
         print('Y: Collision Detected')
     else
         print('Y: No Collision')
