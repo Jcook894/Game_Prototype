@@ -26,7 +26,7 @@ Test_Level = {
     }
 }
 -- Load level assets.
-function LoadLevelSettings()
+function Load_Level_Settings()
     TileSetH = Test_Level.tilesheet:getHeight()
     TileSetW = Test_Level.tilesheet:getWidth()
     TilesheetQuads = {

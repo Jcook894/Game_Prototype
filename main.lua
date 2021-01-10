@@ -1,28 +1,23 @@
 require 'Levels.testLevel'
-require 'Player.player'
+require 'Game_Objects.Player.player'
+require 'Game_Objects.Enemy.enemy'
 require 'Events.userInput'
+require 'Events.animations'
 
 function love.load()
-    LoadPlayerAssets()
-    LoadLevelSettings()
+    Load_Enemy_Assets()
+    Load_Player_Assets()
+    Load_Level_Settings()
 end
 
 function love.update(dt)
     Move_Player()
+    Animate_Enemy(dt)
+    Animate_Player(dt)
 end
 
 function love.draw()
     Draw_Level()
     Render_Player()
-end
-
--- Will close out game instance. TODO: I will need to revist and change logic.
-function love.keypressed(key)
-    if key == 'escape' then
-        love.event.quit()
-    end
-end
-
-function Start_Menu()
-    love.graphics.print("GAME PROTOTYPE", 10, 250, 0, 2, 2)
+    Render_Enemy()
 end
