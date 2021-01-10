@@ -1,7 +1,7 @@
 require 'Events.animations'
 -- Player configuration.
 Player = {
-    x = 0,
+    x = 500,
     y = 0,
     tileW = 32,
     tileH = 42,
@@ -25,17 +25,30 @@ function Render_Player()
     love.graphics.draw(Player_Sprite.spritesheet, Player_Sprite.quads[currentSpriteFrame], Player.x, Player.y);
 end
 
--- Figure out generic collision detection.
+-- TODO:
+-- *Rename variables
+-- *Figure out generic collision detection.
+-- *Make sure collision detection isnt resource intesive.
+-- *Set Collision detection on tilemaps.
 function Check_Collision()
     -- Get Player x Position
-    local currentPlayerX = Player.x
-    -- Get enemy position and add the tile width to that pos.
+    local currentPlayerX, currentPlayerY = Player.x, Player.y
+
+    -- Get enemy position and add the tile width to that pos (from left and right of position).
     local currentEnemyX1, currentEnemyX2 = math.abs(Enemy.x - Enemy.tileW), math.abs(Enemy.x + Enemy.tileW)
-    print('Enemy1: ' ..currentEnemyX1, 'Enemy2: '.. currentEnemyX2)
-    print('Player1: ' ..currentPlayerX)
+    local currentEnemyY1, currentEnemyY2 = math.abs(Enemy.y - Enemy.tileH), math.abs(Enemy.y + Enemy.tileH)
+
+    -- Check X position.
     if (currentPlayerX >= currentEnemyX1 and currentPlayerX <= currentEnemyX2) then
-        print("X Collision")
+        print('X: Collision Detected');
     else
-        print('No Collision')
+        print('X: No Collision')
+    end
+
+    -- Check Y position.
+    if (currentPlayerY <= currentEnemyY1 and currentPlayerY >= currentEnemyY2) then
+        print('Y: Collision Detected')
+    else
+        print('Y: No Collision')
     end
 end
