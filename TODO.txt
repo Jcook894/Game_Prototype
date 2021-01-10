@@ -1,4 +1,6 @@
+!!!!!! WORK ON GAME WITHOUT TUTORIALS !!!!!!
 Things to do:
 - Create base engine functionality.
 - Create sprites to test engine with.
 - Create tilemap and import it to engine to test.
+- Create collision detection.

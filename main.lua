@@ -12,6 +12,8 @@ end
 
 function love.update(dt)
     Move_Player()
+    -- Figure out generic collision detection.
+    Check_Collision()
     Animate_Enemy(dt)
     Animate_Player(dt)
 end

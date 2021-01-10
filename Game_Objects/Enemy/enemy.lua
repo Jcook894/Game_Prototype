@@ -1,8 +1,8 @@
 require 'Events.animations'
 
 Enemy = {
-    x = 200,
-    y = 200,
+    x = 300,
+    y = 300,
     tileW = 32,
     tileH = 32,
     spritesheet = love.graphics.newImage('Assets/test_bouncing_blob.png')
