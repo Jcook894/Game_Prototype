@@ -2,7 +2,7 @@ require 'Events.animations'
 
 -- Player configuration.
 Player = {
-    x = 500,
+    x = 0,
     y = 0,
     tileW = 32,
     tileH = 42,
@@ -40,6 +40,7 @@ function Collision_Detection()
 
     -- Check X and Y position.
     if Player.y >= y1 and Player.y <= y2 and Player.x >= x1 and Player.x <= x2 then
+        
         -- Check X axis collision.
         if Player.x >= x1 and Player.x >= x2 then
             Player.x = Player.x + 1

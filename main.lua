@@ -18,7 +18,12 @@ function love.update(dt)
 end
 
 function love.draw()
+    Camera_System()
     Draw_Level()
     Render_Player()
     Render_Enemy()
+end
+
+function Camera_System()
+    love.graphics.translate(-Player.x / 2, -Player.y / 2)
 end
