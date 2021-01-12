@@ -5,9 +5,11 @@ require 'Events.userInput'
 require 'Events.animations'
 
 function love.load()
+    WindowWidth, WindowHeight, Frame = love.window.getMode()
     Load_Enemy_Assets()
     Load_Player_Assets()
     Load_Level_Settings()
+    print(WindowWidth, WindowHeight)
 end
 
 function love.update(dt)
@@ -25,5 +27,5 @@ function love.draw()
 end
 
 function Camera_System()
-    love.graphics.translate(-Player.x / 2, -Player.y / 2)
+    love.graphics.translate(-Player.x + WindowHeight / 2, -Player.y + WindowHeight / 2)
 end

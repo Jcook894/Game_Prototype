@@ -2,8 +2,8 @@ require 'Events.animations'
 
 -- Player configuration.
 Player = {
-    x = 0,
-    y = 0,
+    x = 500,
+    y = 500,
     tileW = 32,
     tileH = 42,
     name = 'Julian Cook',
