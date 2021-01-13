@@ -5,4 +5,5 @@ Things to do:
 - Create sprites to test engine with.
 - Create tilemap and import it to engine to test.
 - Create collision detection.
+- Collision detection on certain tiles
 - Camera logic.

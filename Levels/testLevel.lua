@@ -1,5 +1,4 @@
 -- Level configuration.
-
 Test_Level = {
     tileH = 32,
     tileW = 32,
@@ -37,13 +36,40 @@ function Load_Level_Settings()
     }
 end
 
+-- Move logic into level builder and draw tiles generically.
 function Draw_Level()
-    -- Move logic into level builder and draw tiles generically.
     for rowIndex = 1, #Test_Level.tileTable do
         local row = Test_Level.tileTable[rowIndex]
         for colIndex = 1, #row do
             local number = row[colIndex]
-            love.graphics.draw(Test_Level.tilesheet, TilesheetQuads[number], (colIndex-1)*Test_Level.tileW, (rowIndex-1)*Test_Level.tileH)
+            love.graphics.draw(Test_Level.tilesheet, TilesheetQuads[number], (colIndex-1) * Test_Level.tileW, (rowIndex-1) * Test_Level.tileH)
+            -- Pass into Barrier Detection.
+            if number == 3 then
+                local y,x = (rowIndex-1) * Test_Level.tileH, (colIndex-1) * Test_Level.tileW
+                Barrier_Detection(x,y)
+            end
+        end
+    end
+end
+
+-- Need to refactor collision detection into reusable function.
+function Barrier_Detection(x, y)
+    local tileX1, tileX2 = math.abs(x - Test_Level.tileW), math.abs(x + Test_Level.tileW)
+    local tileY1, tileY2 = math.abs(y - Test_Level.tileH), math.abs(y + Test_Level.tileH)
+
+     -- Check X and Y position.
+     if Player.y >= tileY1 and Player.y <= tileY2 and Player.x >= tileX1 and Player.x <= tileX2 then
+        -- Check X axis collision.
+        if Player.x >= tileX1 and Player.x >= tileX2 then
+            Player.x = Player.x + 1
+        elseif Player.x <= tileX2 then
+            Player.x = Player.x - 1
+        end
+        -- Check Y axis collision.
+        if Player.y >= tileY1 and Player.y >= tileY2 then
+            Player.y = Player.y + 1
+        elseif Player.y <= tileY2 then
+            Player.y = Player.y - 1
         end
     end
 end

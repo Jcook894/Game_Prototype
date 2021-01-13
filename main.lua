@@ -9,7 +9,6 @@ function love.load()
     Load_Enemy_Assets()
     Load_Player_Assets()
     Load_Level_Settings()
-    print(WindowWidth, WindowHeight)
 end
 
 function love.update(dt)
@@ -27,5 +26,6 @@ function love.draw()
 end
 
 function Camera_System()
-    love.graphics.translate(-Player.x + WindowHeight / 2, -Player.y + WindowHeight / 2)
+    local dx, dy = math.floor(-Player.x + WindowHeight / 2), math.floor(-Player.y + WindowHeight / 2)
+    love.graphics.translate(dx, dy)
 end
