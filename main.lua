@@ -15,7 +15,6 @@ function love.update(dt)
     Move_Player()
     Animate_Enemy(dt)
     Animate_Player(dt)
-    Collision_Detection()
 end
 
 function love.draw()

@@ -1,4 +1,5 @@
 require 'Events.animations'
+require 'Events.collisionDetection'
 
 Enemy = {
     x = 300,
@@ -22,4 +23,5 @@ end
 function Render_Enemy()
     local currentSpriteFrame = math.floor(Enemy_Animation.currentTime / Enemy_Animation.dt * #Enemy_Animation.quads) + 1
     love.graphics.draw(Enemy_Animation.spritesheet, Enemy_Animation.quads[currentSpriteFrame], Enemy.x, Enemy.y);
+    Collision_Detection(Enemy.x, Enemy.y, Enemy.tileH, Enemy.tileW)
 end

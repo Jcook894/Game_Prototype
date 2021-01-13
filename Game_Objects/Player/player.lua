@@ -25,33 +25,3 @@ function Render_Player()
     local currentSpriteFrame = math.floor(Player_Sprite.currentTime / Player_Sprite.dt * #Player_Sprite.quads) + 1
     love.graphics.draw(Player_Sprite.spritesheet, Player_Sprite.quads[currentSpriteFrame], Player.x, Player.y);
 end
-
--- TODO:
--- *Figure out better implementation.
--- *Rename variables
--- *Figure out generic collision detection.
--- *Make sure collision detection isnt resource intesive.
--- *Set Collision detection on tilemaps.
-
-function Collision_Detection()
-    -- Get enemy position and add the tile width to that pos (from left and right of position).
-    local x1, x2 = math.abs(Enemy.x - Enemy.tileW), math.abs(Enemy.x + Enemy.tileW)
-    local y1, y2 = math.abs(Enemy.y - Enemy.tileH), math.abs(Enemy.y + Enemy.tileH)
-
-    -- Check X and Y position.
-    if Player.y >= y1 and Player.y <= y2 and Player.x >= x1 and Player.x <= x2 then
-        -- Check X axis collision.
-        if Player.x >= x1 and Player.x >= x2 then
-            Player.x = Player.x + 1
-        elseif Player.x <= x2 then
-            Player.x = Player.x - 1
-        end
-        -- Check Y axis collision.
-        if Player.y >= y1 and Player.y >= y2 then
-            Player.y = Player.y + 1
-        elseif Player.y <= y2 then
-            Player.y = Player.y - 1
-        end
-    end
-
-end
