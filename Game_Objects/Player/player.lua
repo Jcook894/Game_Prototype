@@ -4,6 +4,7 @@ require 'Events.animations'
 Player = {
     x = 500,
     y = 500,
+    speed = 1,
     tileW = 32,
     tileH = 42,
     name = 'Julian Cook',

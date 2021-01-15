@@ -4,13 +4,13 @@ require 'Game_Objects.Player.player'
 -- TODO: Incorporate player animation cycle.
 function Move_Player()
     if love.keyboard.isDown('w') then
-        Player.y = Player.y - 1
+        Player.y = Player.y - Player.speed
     elseif love.keyboard.isDown('s') then
-        Player.y = Player.y + 1
+        Player.y = Player.y + Player.speed
     elseif love.keyboard.isDown('a') then
-        Player.x = Player.x - 1
+        Player.x = Player.x - Player.speed
     elseif love.keyboard.isDown('d') then
-        Player.x = Player.x + 1
+        Player.x = Player.x + Player.speed
     end
 end
 
