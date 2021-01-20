@@ -5,6 +5,8 @@ Test_Level = {
     tileH = 32,
     tileW = 32,
     tilesheet = love.graphics.newImage('Assets/LOVE_Grass_Tilesheet.png'),
+    -- TODO:
+    -- * Find better alternative to loading tiles.
     tileTable = {
         { 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2 },
         { 2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,2 },
