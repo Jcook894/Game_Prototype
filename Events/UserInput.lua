@@ -9,11 +9,8 @@ require 'Game_Objects.Player.player'
 
 -- Get keyboard input and update player based on key pressed.
 function Move_Player()
-    if love.keyboard.isDown('a') then
-        Player.x = Player.x - Player.speed
-    elseif love.keyboard.isDown('d') then
-        Player.x = Player.x + Player.speed
-    elseif love.keyboard.isDown('w') then
+    
+    if love.keyboard.isDown('w') then
         Player.y = Player.y - Player.speed
         -- diagonal movement.
         if love.keyboard.isDown('a') then
@@ -29,6 +26,10 @@ function Move_Player()
         elseif love.keyboard.isDown('d') then
             Player.x = Player.x + Player.speed
         end
+    elseif love.keyboard.isDown('a') then
+        Player.x = Player.x - Player.speed
+    elseif love.keyboard.isDown('d') then
+        Player.x = Player.x + Player.speed
     end
 end
 
