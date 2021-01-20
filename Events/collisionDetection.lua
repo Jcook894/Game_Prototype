@@ -1,4 +1,5 @@
 -- Checks player position against position of object and prevents player from moving through.
+-- TODO: Prevent player from 'bouncing' when colliding with game object.
 function Collision_Detection(x, y, h, w)
     local x1, x2 = math.abs(x - w), math.abs(x + w)
     local y1, y2 = math.abs(y - h), math.abs(y + h)

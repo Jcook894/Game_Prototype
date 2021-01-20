@@ -1,7 +1,9 @@
 require 'Game_Objects.Player.player'
 
 -- Get keyboard input and update player based on key pressed.
--- TODO: Incorporate player animation cycle.
+-- TODO:
+-- * Incorporate player animation cycle.
+-- * Add in diagnol movement.
 function Move_Player()
     if love.keyboard.isDown('w') then
         Player.y = Player.y - Player.speed
