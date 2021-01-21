@@ -1,4 +1,5 @@
 require 'Events.animations'
+require 'Events.userInput'
 
 -- Player configuration.
 Player = {

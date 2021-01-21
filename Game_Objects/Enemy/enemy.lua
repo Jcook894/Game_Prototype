@@ -6,6 +6,7 @@ Enemy = {
     y = 300,
     tileW = 32,
     tileH = 32,
+    name = 'Test Enemy',
     spritesheet = love.graphics.newImage('Assets/test_bouncing_blob.png')
 }
 

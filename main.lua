@@ -12,7 +12,7 @@ function love.load()
 end
 
 function love.update(dt)
-    Move_Player()
+    Move_Player(Player)
     Enemy.Animate_Enemy(Enemy, dt)
     Player.Animate_Player(Player, dt)
 end
