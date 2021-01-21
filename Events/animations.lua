@@ -1,4 +1,4 @@
--- Create generic func. that will take spritesheets and animate them, based on image properties.
+--  Take spritesheets and animate them, based on image properties.
 function CreateAnimation(img, width, height, dt)
     local animationObj = {};
     animationObj.quads = {};
