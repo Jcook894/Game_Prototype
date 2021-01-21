@@ -1,6 +1,7 @@
 require 'Events.animations'
 require 'Events.collisionDetection'
 
+-- Enemy Table.
 Enemy = {
     x = 300,
     y = 300,

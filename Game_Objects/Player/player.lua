@@ -1,7 +1,7 @@
 require 'Events.animations'
 require 'Events.userInput'
 
--- Player configuration.
+-- Player Table.
 Player = {
     x = 500,
     y = 500,

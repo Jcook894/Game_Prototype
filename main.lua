@@ -6,22 +6,22 @@ require 'Events.animations'
 
 function love.load()
     WindowWidth, WindowHeight, Frame = love.window.getMode()
-    Enemy.Load_Enemy_Assets(Enemy)
-    Player.Load_Player_Assets(Player)
+    Enemy:Load_Enemy_Assets()
+    Player:Load_Player_Assets()
     Load_Level_Settings()
 end
 
 function love.update(dt)
     Move_Player(Player)
-    Enemy.Animate_Enemy(Enemy, dt)
-    Player.Animate_Player(Player, dt)
+    Enemy:Animate_Enemy(dt)
+    Player:Animate_Player(dt)
 end
 
 function love.draw()
     Camera_System()
     Draw_Level()
-    Player.Render_Player(Player)
-    Enemy.Render_Enemy(Enemy)
+    Player:Render_Player()
+    Enemy:Render_Enemy()
 end
 
 function Camera_System()
