@@ -9,19 +9,19 @@ Enemy = {
     spritesheet = love.graphics.newImage('Assets/test_bouncing_blob.png')
 }
 
-function Load_Enemy_Assets()
-    Enemy_Animation = CreateAnimation(Enemy.spritesheet, Enemy.tileW, Enemy.tileH, 1);
+Enemy.Load_Enemy_Assets = function(self)
+    self.Enemy_Sprite = CreateAnimation(self.spritesheet, self.tileW, self.tileH, 1);
 end
 
-function Animate_Enemy(dt)
-    Enemy_Animation.currentTime = Enemy_Animation.currentTime + dt;
-    if Enemy_Animation.currentTime >= Enemy_Animation.dt then
-        Enemy_Animation.currentTime = Enemy_Animation.currentTime - Enemy_Animation.dt
+Enemy.Animate_Enemy = function(self, dt)
+    self.Enemy_Sprite.currentTime = self.Enemy_Sprite.currentTime + dt;
+    if self.Enemy_Sprite.currentTime >= self.Enemy_Sprite.dt then
+        self.Enemy_Sprite.currentTime = self.Enemy_Sprite.currentTime - self.Enemy_Sprite.dt
     end
 end
 
-function Render_Enemy()
-    local currentSpriteFrame = math.floor(Enemy_Animation.currentTime / Enemy_Animation.dt * #Enemy_Animation.quads) + 1
-    love.graphics.draw(Enemy_Animation.spritesheet, Enemy_Animation.quads[currentSpriteFrame], Enemy.x, Enemy.y);
-    Collision_Detection(Enemy.x, Enemy.y, Enemy.tileH, Enemy.tileW)
+Enemy.Render_Enemy = function(self)
+    local currentSpriteFrame = math.floor(self.Enemy_Sprite.currentTime / self.Enemy_Sprite.dt * #self.Enemy_Sprite.quads) + 1
+    love.graphics.draw(self.Enemy_Sprite.spritesheet, self.Enemy_Sprite.quads[currentSpriteFrame], self.x, self.y);
+    Collision_Detection(self.x, self.y, self.tileH, self.tileW)
 end

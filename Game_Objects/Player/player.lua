@@ -11,18 +11,18 @@ Player = {
     spritesheet = love.graphics.newImage('Assets/Me_Earthbound-Recovered-Sheet.png')
 }
 
-function Load_Player_Assets()
-    Player_Sprite = CreateAnimation(Player.spritesheet, Player.tileW, Player.tileH, 1);
+function Player.Load_Player_Assets(self)
+    self.Player_Sprite = CreateAnimation(self.spritesheet, self.tileW, self.tileH, 1);
 end
 
-function Animate_Player(dt)
-    Player_Sprite.currentTime = Player_Sprite.currentTime + dt;
-    if Player_Sprite.currentTime >= Player_Sprite.dt then
-        Player_Sprite.currentTime = Player_Sprite.currentTime - Player_Sprite.dt
+function Player.Animate_Player(self, dt)
+    self.Player_Sprite.currentTime = self.Player_Sprite.currentTime + dt;
+    if self.Player_Sprite.currentTime >= self.Player_Sprite.dt then
+        self.Player_Sprite.currentTime = self.Player_Sprite.currentTime - self.Player_Sprite.dt
     end
 end
 
-function Render_Player()
-    local currentSpriteFrame = math.floor(Player_Sprite.currentTime / Player_Sprite.dt * #Player_Sprite.quads) + 1
-    love.graphics.draw(Player_Sprite.spritesheet, Player_Sprite.quads[currentSpriteFrame], Player.x, Player.y);
+function Player.Render_Player(self)
+    local currentSpriteFrame = math.floor(self.Player_Sprite.currentTime / self.Player_Sprite.dt * #self.Player_Sprite.quads) + 1
+    love.graphics.draw(self.Player_Sprite.spritesheet, self.Player_Sprite.quads[currentSpriteFrame], self.x, self.y);
 end

@@ -9,7 +9,6 @@ require 'Game_Objects.Player.player'
 
 -- Get keyboard input and update player based on key pressed.
 function Move_Player()
-    
     if love.keyboard.isDown('w') then
         Player.y = Player.y - Player.speed
         -- diagonal movement.
