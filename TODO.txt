@@ -9,3 +9,4 @@ Things to do:
 - Find better implementation for collsion detection.
 - Fix sprite studder on collision.
 - Camera logic.
+- Re-work collision logic.

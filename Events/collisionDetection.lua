@@ -3,22 +3,15 @@
 -- *  Clean up code.
 
 -- Checks player position against position of object and prevents player from moving through.
-function Collision_Detection(x, y, h, w)
-    local x1, x2 = math.abs(x - w), math.abs(x + w)
-    local y1, y2 = math.abs(y - h), math.abs(y + h)
-     -- Check X and Y position.
-     if Player.y >= y1 and Player.y <= y2 and Player.x >= x1 and Player.x <= x2 then
-        -- Check X axis collision.
-        if Player.x >= x1 and Player.x >= x2 then
-            Player.x = Player.x + Player.speed
-        elseif Player.x <= x2 then
-            Player.x = Player.x - Player.speed
-        end
-        -- Check Y axis collision.
-        if Player.y >= y1 and Player.y >= y2 then
-            Player.y = Player.y + Player.speed
-        elseif Player.y <= y2 then
-            Player.y = Player.y - Player.speed
-        end
+function Collision_Detection(obj1, obj2)
+    -- Re-working collision detection.
+    if obj1.x < obj2.x + obj2.tileW
+    and obj1.x + obj1.tileW > obj2.x
+    and obj1.y < obj2.y + obj2.tileH
+    and obj1.y + obj1.tileH > obj2.y then
+    -- Prevent player from passing through object.
+        print("COLLISION")
+    else
+        print("NO COLLISION")
     end
 end

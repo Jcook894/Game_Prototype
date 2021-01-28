@@ -11,6 +11,5 @@ function CreateAnimation(img, width, height, dt)
             table.insert(animationObj.quads, love.graphics.newQuad(x, y, width, height, img:getDimensions()));
         end
     end
-
     return animationObj;
 end

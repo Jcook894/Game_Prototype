@@ -28,5 +28,5 @@ end
 function Enemy:Render_Enemy()
     local currentSpriteFrame = math.floor(self.Enemy_Sprite.currentTime / self.Enemy_Sprite.dt * #self.Enemy_Sprite.quads) + 1
     love.graphics.draw(self.Enemy_Sprite.spritesheet, self.Enemy_Sprite.quads[currentSpriteFrame], self.x, self.y);
-    Collision_Detection(self.x, self.y, self.tileH, self.tileW)
+    Collision_Detection(Player, Enemy)
 end

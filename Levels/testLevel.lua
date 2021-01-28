@@ -50,8 +50,13 @@ function Draw_Level()
             love.graphics.draw(Test_Level.tilesheet, TilesheetQuads[number], (colIndex-1) * Test_Level.tileW, (rowIndex-1) * Test_Level.tileH)
             -- Pass rock tile info into Collision Detection.
             if number == 3 then
-                local y,x = (rowIndex-1) * Test_Level.tileH, (colIndex-1) * Test_Level.tileW
-                Collision_Detection(x, y, Test_Level.tileH, Test_Level.tileW)
+                local collisionTiles = {
+                    y = (rowIndex-1) * Test_Level.tileH,
+                    x = (colIndex-1) * Test_Level.tileW,
+                    tileW = TileSetW,
+                    tileH = TileSetH
+                }
+                Collision_Detection(Player, collisionTiles)
             end
         end
     end

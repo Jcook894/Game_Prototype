@@ -4,7 +4,6 @@
         -- Need to figure out better implementation for diagonal movement
 -- * Polish movements, needs to be fluid.
 
-
 -- Get keyboard input and update player based on key pressed.
 function Move_Player(gameObj)
     if love.keyboard.isDown('w') then
@@ -30,7 +29,7 @@ function Move_Player(gameObj)
     end
 end
 
--- End game.
+-- Exit game.
 function love.keypressed(key)
     if key == 'escape' then
         love.event.quit()
