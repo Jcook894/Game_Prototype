@@ -1,7 +1,10 @@
 require 'Events.animations'
 require 'Events.userInput'
 
--- Player Table.
+--[[
+    Player Table.
+    collisionState: TOP, LEFT, RIGHT, BOTTOM, NONE
+]]--
 Player = {
     x = 500,
     y = 500,
@@ -9,6 +12,7 @@ Player = {
     tileW = 32,
     tileH = 42,
     name = 'Julian Cook',
+    collisionState = 'NONE',
     spritesheet = love.graphics.newImage('Assets/Me_Earthbound-Recovered-Sheet.png')
 }
 
@@ -27,6 +31,6 @@ end
 
 -- Render player in game world.
 function Player:Render_Player()
-    local currentSpriteFrame = math.floor(self.Player_Sprite.currentTime / self.Player_Sprite.dt * #self.Player_Sprite.quads) + 1
+    local currentSpriteFrame = math.floor(self.Player_Sprite.currentTime / self.Player_Sprite.dt * # self.Player_Sprite.quads) + 1
     love.graphics.draw(self.Player_Sprite.spritesheet, self.Player_Sprite.quads[currentSpriteFrame], self.x, self.y);
 end

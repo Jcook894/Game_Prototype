@@ -1,12 +1,14 @@
--- TODO:
--- * Incorporate animation cycle.
--- * Add in diagonal movement.
-        -- Need to figure out better implementation for diagonal movement
--- * Polish movements, needs to be fluid.
+--[[
+    TODO:
+    * Incorporate animation cycle.
+    * Add in diagonal movement.
+        * Need to figure out better implementation for diagonal movement
+    * Polish movements, needs to be fluid.
+]]--
 
 -- Get keyboard input and update player based on key pressed.
 function Move_Player(gameObj)
-    if love.keyboard.isDown('w') then
+    if love.keyboard.isDown('w') and Player.collisionState ~= "TOP" then
         gameObj.y = gameObj.y - gameObj.speed
         -- diagonal movement.
         if love.keyboard.isDown('a') then
@@ -26,6 +28,8 @@ function Move_Player(gameObj)
         gameObj.x = gameObj.x - gameObj.speed
     elseif love.keyboard.isDown('d') then
         gameObj.x = gameObj.x + gameObj.speed
+    else
+        Player.collisionState = "NONE"
     end
 end
 
@@ -35,54 +39,3 @@ function love.keypressed(key)
         love.event.quit()
     end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
